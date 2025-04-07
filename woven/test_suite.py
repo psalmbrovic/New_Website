@@ -134,28 +134,3 @@ def test_our_solutions():
     sub_element.click()
 
 
-# Add screenshot-on-failure logic (in conftest.py)
-
-
-# @pytest.hookimpl(hookwrapper=True)
-# # def pytest_runtest_makereport(item, call):
-# #      pytest_html = item.config.pluginmanager.getplugin("html")
-# #      outcome = yield
-# #      report = outcome.get_result()
-# #      extra = getattr(report, "extra", [])
-# #
-# #      if report.when == "call" and report.failed:
-# #          driver = item.funcargs["browser"]
-# #          screenshot = driver.get_screenshot_as_png()
-# #          extra.append(pytest_html.extras.image(screenshot, "Failure Screenshot"))
-#
-# def pytest_runtest_makereport(item, call):
-#     if call.when == "call" and call.excinfo is not None:
-#         driver = item.funcargs["launchbrowser"]
-#         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-#         screenshot_path = f"screenshots/failure_{item.name}_{timestamp}.png"
-#         driver.save_screenshot(screenshot_path)
-#
-#     SCREENSHOT_DIR = "screenshots"
-#     if not os.path.exists(SCREENSHOT_DIR):
-#      os.makedirs(SCREENSHOT_DIR)
